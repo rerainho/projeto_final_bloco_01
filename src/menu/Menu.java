@@ -13,7 +13,7 @@ public class Menu {
 		// Gerenciamento do estoque brand girls power
 		
 		int opcao;
-		String bonecas;
+		String boneca;
 		
 		while (true) {
 			//cores usardas  TEXT_GREEN = "\u001B[32m"; ANSI_PURPLE_BACKGROUND = "\u001B[45m"
