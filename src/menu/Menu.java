@@ -7,14 +7,13 @@ import cores.menu.CoresMenu;
 public class Menu {
 	
 	public static Scanner sc = new Scanner(System.in);
+	private static String boneca;
 
 
 	public static void main(String[] args) {
 		// Gerenciamento do estoque brand girls power
 		
 		int opcao;
-		String boneca;
-		
 		while (true) {
 			//cores usardas  TEXT_GREEN = "\u001B[32m"; ANSI_PURPLE_BACKGROUND = "\u001B[45m"
 			System.out.println(CoresMenu.TEXT_GREEN + CoresMenu.ANSI_PURPLE_BACKGROUND);
@@ -27,7 +26,7 @@ public class Menu {
 			System.out.println("            1 - Cadastrar nova boneca                ");
 			System.out.println("            2 - Listar opções de bonecas             ");
 			System.out.println("            3 - Atualizar compra                     ");
-			System.out.println("            4 - Cancelar compra                      ");
+			System.out.println("            4 - Excluir compra                      ");
 			System.out.println("                                                     ");
 			System.out.println("-----------------------------------------------------");
 			System.out.println("Digite a opção desejada:                             ");

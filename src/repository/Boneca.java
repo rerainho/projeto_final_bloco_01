@@ -1,8 +1,13 @@
 package repository;
 
 public interface Boneca {
-	
-	   void salvarBoneca(Boneca boneca);
-	    Boneca buscarBonecaPorNome(String nome);
 
+	public void salvarBoneca(Boneca boneca);
+
+	Boneca buscarBonecaPorNome(String nome);
+
+	public void listarBonecas();
+
+	public void cadastrarCompra();
+	
 }
