@@ -2,12 +2,12 @@ package model;
 
 public class Lindinha extends Principal {
 	
-	public Lindinha(int tamanho, String boneca, String cor) {
-		super(tamanho, boneca, cor);
-		// TODO Auto-generated constructor stub
-	}
-
 	private String nome;
+	
+	public Lindinha(int id, int modelo, int tamanho, String boneca, String cor, String nome) {
+		super(id, modelo, tamanho, boneca, cor);
+		this.nome = nome;
+	}
 
 	public String getNome() {
 		return nome;
@@ -16,6 +16,11 @@ public class Lindinha extends Principal {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
 
+	@Override
+    public void visualizar() {
+        super.visualizar();
+        System.out.println("Nome: " + this.nome);
+    }
+	
 }

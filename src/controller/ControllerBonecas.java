@@ -1,72 +1,42 @@
 package controller;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
 
-public class ControllerBonecas {
-	
-	private static Scanner sc = new Scanner(System.in);
-    private static List<String> bonecasCadastradas = new ArrayList<>();
+import model.Principal;
+import repository.Boneca;
 
-    public static void main(String[] args) {
-        int opcao;
+public class ControllerBonecas implements Boneca {
 
-        while (true) {
-            System.out.println("## Gerenciamento de Bonecas ##");
-            System.out.println("1 - Cadastrar nova boneca");
-            System.out.println("2 - Listar bonecas cadastradas");
-            System.out.println("3 - Atualizar compra");
-            System.out.println("4 - Cancelar compra");
-            System.out.print("Digite a opção desejada: ");
+	private ArrayList<Principal> listarBonecas = new ArrayList<Principal>();
+	int id = 0;
 
-            try {
-                opcao = sc.nextInt();
-            } catch (InputMismatchException e) {
-                System.out.println("Escolha inválida! Digite um número de acordo com o menu.");
-                sc.nextLine();
-                opcao = 0;
-            }
+	@Override
+	public void cadastrarCompra(Principal principal) {
+		listarBonecas.add(principal);
+		System.out.println("Boneca " + principal.getId() + "cadastrada para a sua compra com sucesso!");
+		}
 
-            switch (opcao) {
-                case 1:
-                    cadastrarCompra();
-                    break;
-                case 2:
-                    listarBonecas();
-                    break;
-                case 3:
-                    atualizarCompra();
-                    break;
-                case 4:
-                    System.out.println("Que pena, espero que volte logo!");
-                    sc.close();
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Opção inválida. Tente novamente.");
-            }
-        }
-    }
+	@Override
+	public void listarBonecas() {
 
-    private static void cadastrarCompra() {
-        System.out.print("Digite o nome da boneca: ");
-        String nomeBoneca = sc.next();
-        bonecasCadastradas.add(nomeBoneca);
-        System.out.println("Boneca cadastrada com sucesso!");
-    }
+		for (var boneca : listarBonecas) {
+			boneca.visualizar();
+		}
+	}
 
-    private static void listarBonecas() {
-        System.out.println("Bonecas cadastradas:");
-        for (String boneca : bonecasCadastradas) {
-            System.out.println(boneca);
-        }
-    }
+	@Override
+	public void atualizar(Principal principal) {
 
-    private static void atualizarCompra() {
-        System.out.println("Funcionalidade de atualização de compra em desenvolvimento.");
-    }
+	}
+
+	@Override
+	public void deletar(int id) {
+
+	}
+
+	public int gerarId() {
+		return ++id;
+
+	}
+
 }
-
-
